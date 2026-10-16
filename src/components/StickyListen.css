@@ -1,0 +1,28 @@
+.sticky-listen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--safe-bottom) + 16px);
+  z-index: 80;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  transition: transform 0.35s var(--ease), opacity 0.25s;
+}
+.sticky-listen .btn {
+  pointer-events: auto;
+  min-height: 54px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+.sticky-listen[data-hidden='true'] {
+  transform: translateY(140%);
+  opacity: 0;
+}
+.sticky-listen[data-hidden='true'] .btn {
+  pointer-events: none;
+}
+@media (min-width: 820px) {
+  .sticky-listen {
+    display: none;
+  }
+}

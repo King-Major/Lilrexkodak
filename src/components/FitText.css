@@ -1,0 +1,13 @@
+.fit {
+  display: block;
+  min-width: 0;
+}
+.fit--line {
+  white-space: nowrap;
+}
+/* A word is never broken in the middle: the helper shrinks the font instead. */
+.fit__text,
+.fit__word {
+  display: inline-block;
+  white-space: nowrap;
+}

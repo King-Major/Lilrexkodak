@@ -1,0 +1,112 @@
+.club {
+  overflow: hidden;
+  padding-bottom: 150px;
+}
+/* The edge of a dark planet rising at the bottom, lit green. */
+.club__limb {
+  position: absolute;
+  left: 50%;
+  bottom: calc(-1 * max(140vw, 1500px) + 96px);
+  width: max(140vw, 1500px);
+  aspect-ratio: 1;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: #000;
+  box-shadow:
+    0 -2px 0 rgba(43, 217, 100, 0.95),
+    0 -18px 70px 6px rgba(43, 217, 100, 0.4),
+    inset 0 28px 70px rgba(43, 217, 100, 0.2);
+  pointer-events: none;
+}
+.club__inner {
+  position: relative;
+  z-index: 1;
+}
+.club .lede {
+  margin-top: 24px;
+}
+
+.club__form {
+  display: grid;
+  gap: 12px;
+  max-width: 560px;
+  margin-top: 36px;
+}
+.club__field {
+  display: grid;
+  gap: 8px;
+}
+.club__field input {
+  width: 100%;
+  min-height: 58px;
+  padding: 0 24px;
+  border: 2px solid var(--white);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--white);
+  font-size: 1.0625rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.club__field input::placeholder {
+  color: #8c8c8c;
+}
+.club__field input:focus {
+  border-color: var(--rex);
+  outline-offset: 2px;
+}
+.club__form .btn {
+  min-height: 58px;
+}
+.club__error {
+  padding-left: 24px;
+  color: #ff8d9a;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.club__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.club__done {
+  max-width: 560px;
+  margin-top: 36px;
+  padding: 22px 24px;
+  border: 2px solid var(--rex);
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.club__soon {
+  display: grid;
+  gap: 32px;
+  margin-top: 72px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-on-black);
+}
+.club__soon h3 {
+  margin-bottom: 8px;
+  font-size: 2.2rem;
+}
+@media (min-width: 640px) {
+  .club__form {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+  .club__form > .club__error {
+    grid-column: 1 / -1;
+  }
+  .club__soon {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+@media (min-width: 820px) {
+  .club {
+    padding-bottom: 200px;
+  }
+}

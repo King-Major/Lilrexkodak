@@ -1,0 +1,138 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0 40px;
+}
+.tab {
+  min-height: 46px;
+  padding: 0 22px;
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--black);
+  font-weight: 700;
+  transition: background-color 0.18s, color 0.18s;
+}
+.tab:hover {
+  background: #eee;
+}
+.tab[aria-pressed='true'] {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* Rows run edge to edge, so the hover fill can reach the screen edges on a phone. */
+.tracklist {
+  margin-inline: calc(var(--gutter) * -1);
+  border-bottom: 1px solid var(--line-on-white);
+}
+.tracklist > li {
+  border-top: 1px solid var(--line-on-white);
+}
+.track {
+  --world-bg: #fff;
+  --world-ink: #000;
+  position: relative;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 92px;
+  padding: 8px var(--gutter) 8px calc(var(--gutter) - 6px);
+  border: 0;
+  background: #fff;
+  color: #000;
+  text-align: left;
+  transition: background-color 0.18s, color 0.18s;
+}
+.track[data-world='rex'] {
+  --world-ink: var(--rex-deep);
+}
+/* On hover the row flips to black, and the planet flips to its photographic negative. */
+.track:hover,
+.track:focus-visible {
+  --world-bg: #000;
+  --world-ink: #fff;
+  background: #000;
+  color: #fff;
+  outline-offset: -3px;
+}
+.track[data-world='rex']:hover,
+.track[data-world='rex']:focus-visible {
+  --world-ink: var(--rex);
+}
+.track:focus-visible {
+  outline-color: var(--rex);
+}
+.track__thumb {
+  display: block;
+  width: 84px;
+  margin: -6px;
+  color: var(--world-ink);
+  transition: color 0.18s;
+}
+.track__text {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.track__title {
+  font-size: clamp(2rem, 9vw, 3.2rem);
+  line-height: 0.9;
+}
+.track__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--graphite);
+  font-size: 0.95rem;
+}
+.track:hover .track__meta,
+.track:focus-visible .track__meta {
+  color: #c8c8c8;
+}
+.track__new {
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--rex);
+  color: #000;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.track__go {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  transition: background-color 0.18s, border-color 0.18s, color 0.18s;
+}
+.track__go svg {
+  width: 16px;
+  height: 16px;
+  margin-left: 2px;
+}
+.track:hover .track__go,
+.track:focus-visible .track__go {
+  background: var(--rex);
+  border-color: var(--rex);
+  color: #000;
+}
+
+@media (min-width: 820px) {
+  .track {
+    grid-template-columns: 104px minmax(0, 1fr) auto;
+    gap: 28px;
+    min-height: 120px;
+  }
+  .track__thumb {
+    width: 116px;
+  }
+  .track__title {
+    font-size: clamp(3rem, 5vw, 4.6rem);
+  }
+}

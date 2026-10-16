@@ -1,0 +1,61 @@
+/* Link rows, shared by the streaming list, the press kit downloads and the listen sheet. */
+.rows {
+  --rows-line: var(--line-on-black);
+  border-bottom: 1px solid var(--rows-line);
+}
+.rows--white {
+  --rows-line: var(--line-on-white);
+}
+.rows > li {
+  border-top: 1px solid var(--rows-line);
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 68px;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  text-decoration: none;
+  transition: background-color 0.18s, color 0.18s, padding 0.22s var(--ease);
+}
+.row__icon {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+.row__label {
+  flex: 1;
+  min-width: 0;
+}
+.row__aside {
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+.row__go {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+.rows:not(.rows--white) .row:hover,
+.rows:not(.rows--white) .row:focus-visible {
+  background: var(--white);
+  color: var(--black);
+  padding-inline: 16px;
+  outline-offset: -3px;
+}
+.rows--white .row:hover,
+.rows--white .row:focus-visible {
+  background: var(--black);
+  color: var(--white);
+  padding-inline: 16px;
+  outline-offset: -3px;
+}

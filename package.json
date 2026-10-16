@@ -1,0 +1,23 @@
+{
+  "name": "lil-rex-kodak-site",
+  "version": "1.0.0",
+  "description": "Official website for Lil Rex Kodak (BasseyRex Imoh): Vite + React, mobile-first.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "vite": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

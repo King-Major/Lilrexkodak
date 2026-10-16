@@ -1,0 +1,92 @@
+/* A spinning square's corners sweep outside the screen as it turns, and browsers count that
+   as page width. Clipping the section stops the record from ever making the page scroll sideways. */
+#latest {
+  overflow-x: hidden; /* older browsers */
+  overflow-x: clip;
+}
+.latest {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* lets the column shrink below its content, so nothing can widen the page */
+  gap: 48px;
+  align-items: center;
+}
+.latest__info {
+  min-width: 0;
+}
+.latest__tag {
+  color: var(--rex);
+  font-weight: 700;
+}
+.latest__title {
+  margin: 10px 0 10px;
+  font-size: clamp(3.4rem, 22vw, 12rem); /* fallback only: FitText sizes it to the column once it measures the real font */
+}
+.latest__feat {
+  font-size: 1.2rem;
+}
+.latest__platforms {
+  margin: 32px 0 24px;
+}
+.latest__player {
+  display: block;
+  border: 0;
+  border-radius: 14px;
+  background: #000;
+}
+
+/* ---------- Vinyl ---------- */
+.vinyl {
+  position: relative;
+  width: min(78vw, 420px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+.vinyl__disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 25deg, transparent 0 8%, rgba(255, 255, 255, 0.2) 13%, transparent 19% 58%, rgba(255, 255, 255, 0.15) 63%, transparent 69%),
+    repeating-radial-gradient(circle, #000 0 2px, #181818 2px 3px);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.05), 0 0 120px rgba(43, 217, 100, 0.14);
+  animation: spin 9s linear infinite;
+}
+.vinyl__label {
+  position: absolute;
+  inset: 31%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--black);
+}
+.vinyl__label svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.vinyl__text {
+  fill: currentColor;
+  font: 800 8.4px var(--font);
+  font-stretch: 75%;
+  letter-spacing: 0.04em;
+}
+.vinyl__dino {
+  font-size: clamp(1.8rem, 9vw, 3.2rem);
+  line-height: 1;
+}
+@keyframes spin {
+  to { rotate: 360deg; }
+}
+
+@media (min-width: 820px) {
+  .latest {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 96px;
+  }
+  .latest__title {
+    font-size: clamp(5rem, 11vw, 12rem);
+  }
+}
